@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manitos Creativas 2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>APRENDEMOS JUGANDO</h1>
+        </div>
+
+    </header>
+
+    <main>
+        <!-- FORMULARIO -->
+        <section id="formulario">
+            <h2>Ingresá tus datos</h2>
+
+            <form id="datosForm">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="number" id="edad" placeholder="Edad" required>
+                <button type="submit">Comenzar</button>
+            </form>
+        </section>
+
+        <!----------------------- BLOQUE DE APRENDIZAJE INICIAL ----------------------->
+        <section id="aprendizaje" class="bloque oculto">
+
+            <h2>Escuchamos las vocales</h2>
+            <div id="mensaje">
+                Tocá una vocal y escuchá su sonido
+            </div>
+
+            <section class="letras">
+                <button class="letra" data-letra="A">A</button>
+                <button class="letra" data-letra="E">E</button>
+                <button class="letra" data-letra="I">I</button>
+                <button class="letra" data-letra="O">O</button>
+                <button class="letra" data-letra="U">U</button>
+            </section>
+
+            <button id="irActividad" class="btn-siguiente">
+                ▶️ ¡Vamos a jugar!
+            </button>
+        </section>
+
+        <!---------------BLOQUE DE ACTIVIDAD-------------- -->
+
+        <section id="actividad" class="bloque oculto">
+            <div class="boton-pulsante">👆</div>
+            <h2>¿Dónde está la vocal?</h2>
+            <div id="instruccion">🔊 Tocá la letra A</div>
+
+            <section class="letras">
+                <button class="letra">B</button>
+                <button class="letra correcta">A</button>
+                <button class="letra">R</button>
+            </section>
+
+            <button id="verResultado" class="btn-siguiente">
+                📊 Ver resultado
+            </button>
+        </section>
+
+        <!---------------BLOQUE DE RESULTADDO---------------->
+
+        <section id="resultado" class="bloque oculto">
+            <h2>Resultado</h2>
+            <div id="resultado-mensaje">Aquí se mostrarán tus elecciones</div>
+            <button id="volver" class="btn-siguiente">🔄 Volver</button>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>© 2025 - Manitos Creativas</p>
+    </footer>
+
+    <!----------------- JS ------------------>
+    <script src="script.js"></script>
+</body>
+
+</html>
