@@ -1,0 +1,27 @@
+ [
+  {
+    "vocal": "A",
+    "consigna": "./assets/audios/letra-a.mp3",
+    "opciones": ["B", "A", "R"]
+  },
+  {
+    "vocal": "E",
+    "consigna": "./assets/audios/letra-e.mp3",
+    "opciones": ["E", "M", "T"]
+  },
+  {
+    "vocal": "I",
+    "consigna": "./assets/audios/letra-i.mp3",
+    "opciones": ["S", "I", "L"]
+  },
+  {
+    "vocal": "O",
+    "consigna": "./assets/audios/letra-o.mp3",
+    "opciones": ["O", "L", "A"]
+  },
+  {
+    "vocal": "U",
+    "consigna": "./assets/audios/letra-u.mp3",
+    "opciones": ["U", "N", "O"]
+  }
+]

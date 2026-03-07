@@ -6,7 +6,7 @@
 /* BODY */
 body {
   background-color: #fef6e4;
-  background-image: 
+  background-image:
     radial-gradient(circle, #ffda77 10%, transparent 10%),
     radial-gradient(circle, #77ddff 10%, transparent 10%);
   background-size: 50px 50px;
@@ -47,7 +47,7 @@ body {
 
 .hero-content h1 {
   font-size: 1.8rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   font-family: 'Baloo 2', Arial, sans-serif;
 }
 
@@ -77,9 +77,20 @@ body {
 }
 
 @keyframes bounceIn {
-  0% { opacity: 0; transform: translateY(50px); }
-  60% { opacity: 1; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -101,6 +112,7 @@ body {
 .letra:active {
   transform: scale(0.9);
 }
+
 .letra.seleccionada {
   background-color: #ff6b6b;
   transform: scale(1.1);
@@ -133,15 +145,27 @@ body {
   font-size: 18px;
   margin: 20px 0;
 }
+
 /* Acierto: pulso verde */
 .correcta-feedback {
   animation: pulsoCorrecto 0.5s;
 }
 
 @keyframes pulsoCorrecto {
-  0% { transform: scale(1); background-color: #28a745; }
-  50% { transform: scale(1.2); background-color: #28a745; }
-  100% { transform: scale(1); background-color: #28a745; }
+  0% {
+    transform: scale(1);
+    background-color: #28a745;
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #28a745;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #28a745;
+  }
 }
 
 /* Error: sacudida roja */
@@ -150,11 +174,27 @@ body {
 }
 
 @keyframes sacudirError {
-  0% { transform: translateX(0); background-color: #dc3545; }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); background-color: #dc3545; }
+  0% {
+    transform: translateX(0);
+    background-color: #dc3545;
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+    background-color: #dc3545;
+  }
 }
 
 
@@ -167,16 +207,62 @@ body {
   font-size: 1.3rem;
   cursor: pointer;
   display: block;
-  margin: 10px auto; /* Centrado horizontal */
+  margin: 10px auto;
+  /* Centrado horizontal */
   animation: pulsar 1s infinite alternate;
 }
 
 @keyframes pulsar {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }
 
+#barra-progreso {
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  margin: 10px 0;
+}
 
+#progreso {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+#ranking-lista {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+}
+
+#ranking-lista li {
+  background: #f5f5f5;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+#ranking li {
+  background: white;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#ranking li:hover {
+  transform: scale(1.03);
+}
 
 
 /* RESPONSIVE HERO */
