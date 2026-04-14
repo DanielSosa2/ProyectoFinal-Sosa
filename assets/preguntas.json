@@ -1,27 +1,169 @@
- [
+[
   {
     "vocal": "A",
+    "nivel": 1,
     "consigna": "./assets/audios/letra-a.mp3",
-    "opciones": ["B", "A", "R"]
+    "opciones": [
+      "B",
+      "A",
+      "R"
+    ]
   },
   {
     "vocal": "E",
+    "nivel": 1,
     "consigna": "./assets/audios/letra-e.mp3",
-    "opciones": ["E", "M", "T"]
+    "opciones": [
+      "E",
+      "M",
+      "T"
+    ]
   },
   {
     "vocal": "I",
+    "nivel": 1,
     "consigna": "./assets/audios/letra-i.mp3",
-    "opciones": ["S", "I", "L"]
+    "opciones": [
+      "S",
+      "I",
+      "L"
+    ]
   },
   {
     "vocal": "O",
+    "nivel": 1,
     "consigna": "./assets/audios/letra-o.mp3",
-    "opciones": ["O", "L", "A"]
+    "opciones": [
+      "O",
+      "L",
+      "A"
+    ]
   },
   {
     "vocal": "U",
+    "nivel": 1,
     "consigna": "./assets/audios/letra-u.mp3",
-    "opciones": ["U", "N", "O"]
-  }
+    "opciones": [
+      "U",
+      "N",
+      "O"
+    ]
+  },
+  {
+    "vocal": "M",
+    "nivel": 2,
+    "consigna": "./assets/audios/letra-m.mp3",
+    "opciones": [
+      "M",
+      "N",
+      "A",
+      "Ñ",
+      "A",
+      "A"
+    ]
+  },
+  {
+    "vocal": "P",
+    "nivel": 2,
+    "consigna": "./assets/audios/letra-p.mp3",
+    "opciones": [
+      "P",
+      "A",
+      "R",
+      "U",
+      "T",
+      "E"
+    ]
+  },
+  {
+  "vocal": "L",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-l.mp3",
+  "opciones": [
+    "L",
+    "M",
+    "A",
+    "S",
+    "T",
+    "E"
+  ]
+},
+{
+  "vocal": "S",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-s.mp3",
+  "opciones": [
+    "S",
+    "L",
+    "A",
+    "P",
+    "T",
+    "O"
+  ]
+},
+{
+  "vocal": "T",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-t.mp3",
+  "opciones": [
+    "T",
+    "D",
+    "A",
+    "L",
+    "S",
+    "E"
+  ]
+},
+{
+  "vocal": "N",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-n.mp3",
+  "opciones": [
+    "N",
+    "M",
+    "A",
+    "D",
+    "F",
+    "O"
+  ]
+},
+{
+  "vocal": "D",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-d.mp3",
+  "opciones": [
+    "D",
+    "T",
+    "A",
+    "N",
+    "F",
+    "E"
+  ]
+},
+{
+  "vocal": "F",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-f.mp3",
+  "opciones": [
+    "F",
+    "P",
+    "A",
+    "L",
+    "N",
+    "O"
+  ]
+},
+{
+  "vocal": "R",
+  "nivel": 2,
+  "consigna": "./assets/audios/letra-r.mp3",
+  "opciones": [
+    "R",
+    "L",
+    "A",
+    "D",
+    "N",
+    "E"
+  ]
+}
 ]

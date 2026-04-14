@@ -1,3 +1,36 @@
+let nivel = 1;
+
+const btn = document.getElementById("btnComenzar");
+const inicio = document.getElementById("inicio");
+const app = document.getElementById("app");
+
+const pantallaNivel = document.getElementById("nivel");
+const tituloNivel = document.getElementById("tituloNivel");
+const btnIniciarNivel = document.getElementById("btnIniciarNivel");
+
+btn.addEventListener("click", () => {
+  inicio.style.display = "none";
+  app.style.display = "block";
+});
+/* ===================== BOTONES=================*/
+btnIniciarNivel.addEventListener("click", () => {
+
+  if (nivel === 2) {
+    mostrarBloque(aprendizaje2, pantallaNivel);
+  } else {
+    mostrarBloque(actividad, pantallaNivel);
+    iniciarActividad();
+  }
+
+});
+
+app.classList.remove("oculto");
+
+document.getElementById("irActividad2").addEventListener("click", () => {
+  mostrarBloque(actividad, aprendizaje2);
+  iniciarActividad();
+});
+
 /* ========================= SECCIONES ========================= */
 const aprendizaje = document.getElementById("aprendizaje");
 const actividad = document.getElementById("actividad");
@@ -12,6 +45,9 @@ const usuarioGuardado = JSON.parse(localStorage.getItem("usuarioVocales"));
 if (usuarioGuardado) {
   document.getElementById("nombre").value = usuarioGuardado.nombre;
   document.getElementById("edad").value = usuarioGuardado.edad;
+
+
+  document.getElementById("saludo").textContent = `Hola ${usuarioGuardado.nombre} 👋`;
 }
 
 formulario.addEventListener("submit", (e) => {
@@ -26,6 +62,8 @@ formulario.addEventListener("submit", (e) => {
   };
 
   localStorage.setItem("usuarioVocales", JSON.stringify(usuario));
+  // 🔥 SALUDO
+  document.getElementById("saludo").textContent = `Hola ${nombre} 👋`;
 
   mostrarBloque(aprendizaje, formularioSeccion);
 
@@ -45,6 +83,16 @@ const sonidos = {
   I: new Audio("assets/audios/letra-i.mp3"),
   O: new Audio("assets/audios/letra-o.mp3"),
   U: new Audio("assets/audios/letra-u.mp3"),
+
+  M: new Audio("assets/audios/letra-m.mp3"),
+  P: new Audio("assets/audios/letra-p.mp3"),
+  L: new Audio("assets/audios/letra-l.mp3"),
+  S: new Audio("assets/audios/letra-s.mp3"),
+  T: new Audio("assets/audios/letra-t.mp3"),
+  N: new Audio("assets/audios/letra-n.mp3"),
+  D: new Audio("assets/audios/letra-d.mp3"),
+  F: new Audio("assets/audios/letra-f.mp3"),
+  R: new Audio("assets/audios/letra-r.mp3"),
 };
 
 const audioBienvenida = new Audio("./assets/audios/hola-escuchamoslasvocales.mp3");
@@ -61,19 +109,21 @@ let aciertos = 0;
 let errores = 0;
 
 /* ========================= APRENDIZAJE – VOCALES========================= */
-const letrasAprendizaje = document.querySelectorAll("#aprendizaje .letra");
+const letrasAprendizaje = document.querySelectorAll(".letra");
 
 letrasAprendizaje.forEach(letra => {
   letra.addEventListener("click", () => {
-    letrasAprendizaje.forEach(l => l.classList.remove("seleccionada"));
-    letra.classList.add("seleccionada");
 
     const l = letra.dataset.letra;
-    sonidos[l].currentTime = 0;
-    sonidos[l].play();
+
+    if (sonidos[l]) {
+      sonidos[l].currentTime = 0;
+      sonidos[l].play();
+    }
+
+    letra.classList.add("seleccionada");
   });
 });
-
 
 /* ========================= BOTÓN VAMOS A JUGAR   ========================= */
 document.getElementById("irActividad").addEventListener("click", async () => {
@@ -88,27 +138,39 @@ document.getElementById("irActividad").addEventListener("click", async () => {
 });
 
 /* ========================= ACTIVIDAD ========================= */
+// Esta funcion es para agregar los niveles
+
+function obtenerActividadesNivel() {
+  return actividades.filter(act => act.nivel === nivel);
+}
+
+
+
 function iniciarActividad() {
   setTimeout(cargarActividad, 1200);
 }
+
 
 function mezclarOpciones(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
 function cargarActividad() {
-  const act = actividades[indiceActividad];
+  const lista = obtenerActividadesNivel();
+  const act = lista[indiceActividad];
+
   const contenedor = document.querySelector("#actividad .letras");
   const instruccion = document.getElementById("instruccion");
-
   const progreso = document.getElementById("progreso");
 
-  let porcentaje = ((indiceActividad + 1) / actividades.length) * 100;
-
+  let porcentaje = ((indiceActividad + 1) / lista.length) * 100;
   progreso.style.width = porcentaje + "%";
 
-  instruccion.textContent = `🔊 Tocá la letra ${act.vocal}`;
-
+  if (nivel === 1) {
+    instruccion.textContent = `🔊 Tocá la vocal ${act.vocal}`;
+  } else {
+    instruccion.textContent = `🔊 Tocá la letra ${act.vocal}`;
+  }
 
   const audioConsigna = new Audio(act.consigna);
   audioConsigna.currentTime = 0;
@@ -126,9 +188,9 @@ function cargarActividad() {
   });
 }
 
-
 function evaluarRespuesta(letra) {
-  const correcta = actividades[indiceActividad].vocal;
+  const lista = obtenerActividadesNivel();
+  const correcta = lista[indiceActividad].vocal;
 
   if (letra === correcta) {
     aciertos++;
@@ -139,14 +201,21 @@ function evaluarRespuesta(letra) {
     audioCorrecto.onended = () => {
       indiceActividad++;
 
-      if (indiceActividad < actividades.length) {
+      if (indiceActividad < lista.length) {
         cargarActividad();
       } else {
-        mostrarResultado();
+        nivel++;
+        indiceActividad = 0;
+
+        tituloNivel.textContent = `Nivel ${nivel}`;
+        mostrarBloque(pantallaNivel, actividad);
       }
+
     };
+
   } else {
     errores++;
+    audioError.currentTime = 0;
     audioError.play();
   }
 }

@@ -17,75 +17,112 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>APRENDEMOS JUGANDO</h1>
+            <h1>Aprendemos jugando</h1>
+
         </div>
 
     </header>
 
     <main>
-        <!-- FORMULARIO -->
-        <section id="formulario">
-            <h2>Ingresá tus datos</h2>
-
-            <form id="datosForm">
-                <input type="text" id="nombre" placeholder="Nombre" required>
-                <input type="number" id="edad" placeholder="Edad" required>
-                <button type="submit">Comenzar</button>
-            </form>
+        <!-- INICIO -->
+        <section id="inicio">
+            <h1>Manitos Creativas</h1>
+            <p>Plataforma interactiva con actividades educativas para niños</p>
+            <button id="btnComenzar">Comenzar</button>
+            <p id="nivelTexto"></p>
         </section>
 
-        <!----------------------- BLOQUE DE APRENDIZAJE INICIAL ----------------------->
-        <section id="aprendizaje" class="bloque oculto">
 
-            <h2>Escuchamos las vocales</h2>
-            <div id="mensaje">
-                Tocá una vocal y escuchá su sonido
-            </div>
+        <section id="app" style="display: none;">
 
-            <section class="letras">
-                <button class="letra" data-letra="A">A</button>
-                <button class="letra" data-letra="E">E</button>
-                <button class="letra" data-letra="I">I</button>
-                <button class="letra" data-letra="O">O</button>
-                <button class="letra" data-letra="U">U</button>
+            <!-- FORMULARIO -->
+            <section id="formulario">
+                <h2>Ingresá tus datos</h2>
+
+                <form id="datosForm">
+                    <input type="text" id="nombre" placeholder="Nombre">
+                    <input type="number" id="edad" placeholder="Edad">
+                    <button id="btnLogin">Comenzar</button>
+                </form>
             </section>
 
-            <button id="irActividad" class="btn-siguiente">
-                ▶️ ¡Vamos a jugar!
-            </button>
-        </section>
+            <!----------------------- BLOQUE DE APRENDIZAJE INICIAL ----------------------->
+            <section id="aprendizaje" class="bloque oculto">
+                <h2 id="saludo"></h2>
+                <h2>Escuchamos las vocales</h2>
+                <div id="mensaje">
+                    Tocá una vocal y escuchá su sonido
+                </div>
 
-        <!---------------BLOQUE DE ACTIVIDAD-------------- -->
+                <section class="letras">
+                    <button class="letra" data-letra="A">A</button>
+                    <button class="letra" data-letra="E">E</button>
+                    <button class="letra" data-letra="I">I</button>
+                    <button class="letra" data-letra="O">O</button>
+                    <button class="letra" data-letra="U">U</button>
+                </section>
 
-        <section id="actividad" class="bloque oculto">
-            <div class="boton-pulsante">👆</div>
-            <h2>¿Dónde está la vocal?</h2>
-            <div id="instruccion">🔊 Tocá la letra A</div>
+                <button id="irActividad" class="btn-siguiente">
+                    ▶️ ¡Vamos a jugar!
+                </button>
+            </section>
+            <!------------------Bloque de aprendizaje consonantes---------------->
 
-            <div id="barra-progreso">
-                <div id="progreso"></div>
-            </div>
+            <section id="aprendizaje2" class="oculto">
+                <h2>Aprendamos las letras</h2>
 
-            <section class="letras">
-                <button class="letra">B</button>
-                <button class="letra correcta">A</button>
-                <button class="letra">R</button>
+                <div class="letras">
+                    <button class="letra" data-letra="M">M</button>
+                    <button class="letra" data-letra="P">P</button>
+                    <button class="letra" data-letra="L">L</button>
+                    <button class="letra" data-letra="S">S</button>
+                    <button class="letra" data-letra="T">T</button>
+                    <button class="letra" data-letra="N">N</button>
+                    <button class="letra" data-letra="D">D</button>
+                    <button class="letra" data-letra="F">F</button>
+                    <button class="letra" data-letra="R">R</button>
+                </div>
+
+                <button id="irActividad2">Vamos a jugar</button>
             </section>
 
-            <button id="verResultado" class="btn-siguiente">
-                📊 Ver resultado
-            </button>
+            <!---------------BLOQUE DE ACTIVIDAD-------------- -->
+
+            <section id="actividad" class="bloque oculto">
+                <div class="boton-pulsante">👆</div>
+                <h2 id="instruccion"></h2>
+                <div id="instruccion"></div>
+
+                <div id="barra-progreso">
+                    <div id="progreso"></div>
+                </div>
+
+                <section class="letras">
+                    <button class="letra">B</button>
+                    <button class="letra correcta">A</button>
+                    <button class="letra">R</button>
+                </section>
+                <button id="btnNivel">Siguiente nivel</button>
+                <button id="verResultado" class="btn-siguiente">
+                    📊 Ver resultado
+                </button>
+            </section>
+            <!-----------------BLOQUE NIVEL 2 ------------------>
+            <section id="nivel" class="oculto">
+                <h2 id="tituloNivel">Nivel 2</h2>
+                <button id="btnIniciarNivel">Comenzar</button>
+            </section>
+            <!---------------BLOQUE DE RESULTADDO---------------->
+
+            <section id="resultado" class="bloque oculto">
+                <h2>Resultado</h2>
+                <div id="resultado-mensaje"></div>
+                <h3>🏆 Ranking de jugadores</h3>
+                <ul id="ranking-lista"></ul>
+                <button id="volver" class="btn-siguiente">🔄 Volver</button>
+            </section>
         </section>
 
-        <!---------------BLOQUE DE RESULTADDO---------------->
-
-        <section id="resultado" class="bloque oculto">
-            <h2>Resultado</h2>
-            <div id="resultado-mensaje"></div>
-            <h3>🏆 Ranking de jugadores</h3>
-            <ul id="ranking-lista"></ul>
-            <button id="volver" class="btn-siguiente">🔄 Volver</button>
-        </section>
     </main>
 
 
