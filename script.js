@@ -195,6 +195,7 @@ function evaluarRespuesta(letra) {
   if (letra === correcta) {
     aciertos++;
 
+
     audioCorrecto.currentTime = 0;
     audioCorrecto.play();
 
