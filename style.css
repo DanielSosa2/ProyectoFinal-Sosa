@@ -112,14 +112,20 @@ button {
 }
 
 .correcto {
-  background-color: #1f02c0 !important;
+  background-color: #22c55e !important;
   color: white;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .incorrecto {
   background-color: #ef4444 !important;
   color: white;
+  transform: scale(0.9);
+  transition: 0.2s;
 }
+
+
 @keyframes bounceIn {
   0% {
     opacity: 0;

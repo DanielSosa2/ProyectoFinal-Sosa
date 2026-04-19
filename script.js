@@ -183,19 +183,30 @@ function cargarActividad() {
     btn.className = "letra";
     btn.textContent = letra;
 
-    btn.addEventListener("click", () => evaluarRespuesta(letra));
+    btn.addEventListener("click", () => evaluarRespuesta(letra, btn));
     contenedor.appendChild(btn);
   });
 }
 
-function evaluarRespuesta(letra) {
+function evaluarRespuesta(letra, elemento) {
   const lista = obtenerActividadesNivel();
   const correcta = lista[indiceActividad].vocal;
+  const mensaje = document.getElementById("mensaje");
 
   if (letra === correcta) {
     aciertos++;
 
+    // 🎨 feedback visual
+    elemento.classList.add("correcto");
+    mensaje.textContent = "¡Correcto!";
+    mensaje.style.color = "green";
 
+    setTimeout(() => {
+      elemento.classList.remove("correcto");
+      mensaje.textContent = "";
+    }, 800);
+
+    // 🔊 sonido
     audioCorrecto.currentTime = 0;
     audioCorrecto.play();
 
@@ -211,15 +222,27 @@ function evaluarRespuesta(letra) {
         tituloNivel.textContent = `Nivel ${nivel}`;
         mostrarBloque(pantallaNivel, actividad);
       }
-
     };
 
   } else {
     errores++;
+
+    // 🎨 feedback visual
+    elemento.classList.add("incorrecto");
+    mensaje.textContent = "Intentá de nuevo";
+    mensaje.style.color = "red";
+
+    setTimeout(() => {
+      elemento.classList.remove("incorrecto");
+      mensaje.textContent = "";
+    }, 800);
+
+    // 🔊 sonido
     audioError.currentTime = 0;
     audioError.play();
   }
 }
+
 
 /* ========================= RESULTADO ========================= */
 
